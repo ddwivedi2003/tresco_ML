@@ -1562,7 +1562,7 @@ def generate_score(user_id: str):
     except Exception as e:
         print("❌ Error:", str(e))
         raise HTTPException(status_code=404, detail="Something went wrong")
-@app.post("/test-links")
+'''@app.post("/test-links")
 def test_links(platform_links: dict[str, str]):
     try:
         print("📦 Received:", platform_links)
@@ -1577,5 +1577,5 @@ def test_links(platform_links: dict[str, str]):
     except Exception as e:
         import traceback
         traceback.print_exc()
-        return {"status": "error", "message": str(e)}
+        return {"status": "error", "message": str(e)}'''
     
