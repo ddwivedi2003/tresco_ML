@@ -10,6 +10,7 @@ import traceback
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 from supabase import create_client, Client
 import time
 import random
@@ -27,15 +28,27 @@ from urllib.parse import urlparse
 from datetime import datetime, timezone
 from pydantic import BaseModel
 
+
 # 🔥 Supabase credentials
 SUPABASE_URL = "https://uankwdgpnouwmtgcainy.supabase.co"
 SUPABASE_KEY = "sb_publishable_8a7DY7P5uPa8zZmQF9OKSQ_JLLM_aJt"
 
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
-
 app = FastAPI()
+origins = [
+    "http://localhost:5173",  # your frontend (Vite)
+    "http://localhost:3000",  # if React
+    "https://tresco.vercel.app/"  # (for testing only)
+]
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],   # IMPORTANT
+    allow_headers=["*"],
+)
 
 def default_error_code(status_code: int) -> str:
     return {
