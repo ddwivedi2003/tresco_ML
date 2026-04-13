@@ -29,6 +29,8 @@ from datetime import datetime, timezone
 from pydantic import BaseModel
 
 
+DATAMAGNET_TOKEN   = "c74d3048f38115659b73c81a276f0f91b172111cc06d26544130caad99280838"   # required for LinkedIn
+
 # 🔥 Supabase credentials
 SUPABASE_URL = "https://uankwdgpnouwmtgcainy.supabase.co"
 SUPABASE_KEY = "sb_publishable_8a7DY7P5uPa8zZmQF9OKSQ_JLLM_aJt"
@@ -987,7 +989,7 @@ def simulated_ml_model(platform_links:dict[str, str]):
   AZURE_OPENAI_API_KEY    = "CWcXBMalpGqTsxcKFF3movpCCR0xGwpQtMFEfIZEDTEd6oTsFtdlJQQJ99CDACYeBjFXJ3w3AAABACOGYHIY"   # paste your Azure OpenAI key
 
   GITHUB_TOKEN       = ""   # optional — raises rate limit
-  DATAMAGNET_TOKEN   = "b705e77627b3539d6ef6e4d5dddf67395fa2c3229a1ba514de0dabc433745eaf"   # required for LinkedIn
+  
   KAGGLE_USERNAME    = ""   # required for Kaggle
   KAGGLE_KEY         = ""   # required for Kaggle
   SO_API_KEY         = ""   # optional — raises quota
